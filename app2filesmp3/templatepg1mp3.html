@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}How the Converter Works{% endblock %}
+
+{% block content %}
+<h1>How the Converter Works</h1>
+<p>This app uses the Python library <strong>pydub</strong> and the
+<code>ffmpeg</code> program to decode MP3 files and re-encode them as WAV files.</p>
+<ol>
+    <li>You upload an MP3.</li>
+    <li>The server saves it temporarily.</li>
+    <li>pydub reads the MP3 and exports a WAV version.</li>
+    <li>The browser automatically downloads the new WAV file.</li>
+</ol>
+{% endblock %}

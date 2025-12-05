@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Review – {{ review.album if review else "Not found" }}{% endblock %}
+
+{% block content %}
+{% if review %}
+<h1>{{ review.artist }} – {{ review.album }}</h1>
+<p><strong>Rating:</strong> {{ review.rating }} / 10</p>
+<p>{{ review.text }}</p>
+<p><a href="{{ url_for('index') }}" class="btn">Back to all reviews</a></p>
+{% else %}
+<p>Review not found.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Flask App{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background:#f5f5f5; }
+        header { background:#333; color:#fff; padding:1rem; }
+        nav a { color:#fff; margin-right:1rem; text-decoration:none; }
+        nav a:hover { text-decoration:underline; }
+        .container { max-width:900px; margin:2rem auto; background:#fff;
+                     padding:2rem; border-radius:8px; }
+        footer { text-align:center; font-size:0.8rem; color:#666; margin:2rem 0; }
+        .btn { display:inline-block; padding:0.5rem 1rem; border-radius:4px;
+               border:none; background:#333; color:#fff; cursor:pointer; }
+        .btn-link { background:none; border:none; color:#0066cc; cursor:pointer; }
+        input, select, textarea { padding:0.4rem; width:100%; margin-bottom:0.7rem; }
+        table { width:100%; border-collapse:collapse; margin-top:1rem; }
+        th, td { padding:0.5rem; border-bottom:1px solid #ddd; }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('page1') }}">Page 1</a>
+        <a href="{{ url_for('page2') }}">Page 2</a>
+    </nav>
+</header>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+    Built with Flask · Student Project
+</footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Mom's Bedtime Rules{% endblock %}
+
+{% block content %}
+<h1>Mom's Bedtime Rules</h1>
+<p>Check off each rule as it’s completed for the night.</p>
+
+<form action="{{ url_for('add_rule') }}" method="post">
+    <label for="rule_text">Add a new rule:</label>
+    <input type="text" id="rule_text" name="rule_text" placeholder="Lights out by 9:00 pm">
+    <button type="submit" class="btn">Add Rule</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Done?</th>
+            <th>Rule</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rule in rules %}
+        <tr>
+            <td>
+                <a href="{{ url_for('toggle_rule', rule_id=rule.id) }}">
+                    {{ "✔️" if rule.completed else "⭕" }}
+                </a>
+            </td>
+            <td style="{{ 'text-decoration: line-through; color: #666;' if rule.completed }}">
+                {{ rule.text }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

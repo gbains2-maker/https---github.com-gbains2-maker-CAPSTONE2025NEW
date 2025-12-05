@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}MP3 to WAV Converter{% endblock %}
+
+{% block content %}
+<h1>MP3 to WAV Converter</h1>
+<p>Upload an MP3 file and download it as a WAV file.</p>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li style="color:red;">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<form method="post" enctype="multipart/form-data">
+    <label for="file">Choose an MP3 file:</label>
+    <input type="file" name="file" id="file" accept=".mp3">
+    <button type="submit" class="btn">Convert to WAV</button>
+</form>
+{% endblock %}
